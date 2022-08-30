@@ -10,6 +10,8 @@
   margin-left: 16px;
   transition: opacity .2s linear;
   cursor: pointer;
+  position: relative;
+  top: -10px;
 }
 
 .profile__button-edit:hover {
