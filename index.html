@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mesto</title>
+  <link rel="stylesheet" type="text/css" href="./pages/index.css">
+</head>
+<body class="page">
+  <header class="header">
+    <img class="header__logo" src="./images/header__logo.svg" alt="Логотип Место">
+  </header>
+  <main class="content">
+    <section class="profile">
+      <img class="profile__avatar" src="./images/profile__avatar.png" alt="Аватар">
+      <div class="profile__info">
+        <h1 class="profile__name">Жак-Ив Кусто</h1>
+        <p class="profile__job">Исследователь океана</p>
+        <button class="profile__button-edit"></button>
+      </div>
+      <div class="profile__button-add"></div>
+    </section>
+    <section class="elements">
+      <article class="element">
+        <img class="element__image" src="./images/karachaevsk.jpg" alt="Карачаевск">
+        <h2 class="element__title">Карачаевск</h2>
+        <button class="element__button-like"></button>
+      </article>
+      <article class="element">
+        <img class="element__image" src="./images/elbrus.jpg" alt="Гора Эльбрус">
+        <h2 class="element__title">Гора Эльбрус</h2>
+        <button class="element__button-like"></button>
+      </article>
+      <article class="element">
+        <img class="element__image" src="./images/dombay.jpg" alt="Домбай">
+        <h2 class="element__title">Домбай</h2>
+        <button class="element__button-like"></button>
+      </article>
+      <article class="element">
+        <img class="element__image" src="./images/karelia.jpg" alt="Карелия">
+        <h2 class="element__title">Карелия</h2>
+        <button class="element__button-like"></button>
+      </article>
+      <article class="element">
+        <img class="element__image" src="./images/kolskiy.jpg" alt="Кольский полуостров">
+        <h2 class="element__title">Кольский полуостров</h2>
+        <button class="element__button-like"></button>
+      </article>
+      <article class="element">
+        <img class="element__image" src="./images/kosa.jpg" alt="Куршская коса">
+        <h2 class="element__title">Куршкая коса</h2>
+        <button class="element__button-like"></button>
+      </article>
+    </section>
+    <section class="edit">
+      <form class="edit__form">
+        <h2 class="edit__form-title">Редактировать профиль</h2>
+        <input type="text" class="edit__form-input edit__form-input_name" name="form-input_name" placeholder="Имя" value="Жак-Ив Кусто">
+        <input type="text" class="edit__form-input edit__form-input_job" name="form-input_job" placeholder="Профессия" value="Исследователь океана">
+        <input type="submit" class="edit__form-submit" name="form-submit" value="Сохранить">
+      </form>
+    </section>
+  </main>
+  <footer class="footer">
+    <p class="footer__copyright">&copy; 2022 Mesto Russia</p>
+  </footer>
+</body>
+</html>
