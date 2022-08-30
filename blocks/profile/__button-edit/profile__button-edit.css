@@ -1,0 +1,25 @@
+.profile__button-edit {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  background-color: #000;
+  background-image: url('../../../images/profile__button-edit.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  border: 1px solid #fff;
+  margin-left: 16px;
+  transition: opacity .2s linear;
+  cursor: pointer;
+}
+
+.profile__button-edit:hover {
+  opacity: .6;
+}
+
+.profile__button-edit:active {
+  opacity: .3;
+}
+
+.profile__button-edit:focus {
+  outline: 1px solid yellow;
+}
