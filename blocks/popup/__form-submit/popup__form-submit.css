@@ -22,3 +22,11 @@
 .popup__form-submit:active {
   opacity: .5;
 }
+
+@media screen and (max-width: 570px) {
+  .popup__form-submit {
+    margin-top: 45px;
+    font-size: 14px;
+    line-height: 17px;
+  }
+}

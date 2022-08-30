@@ -23,3 +23,11 @@
 .profile__button-edit:focus {
   outline: 1px solid yellow;
 }
+
+@media screen and (max-width: 767px) {
+  .profile__button-edit {
+    width: 18px;
+    height: 18px;
+    margin-left: 5px;
+  }
+}

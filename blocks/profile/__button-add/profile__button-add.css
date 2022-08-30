@@ -22,3 +22,15 @@
 .profile__button-add:focus {
   outline: 1px solid yellow;
 }
+
+@media screen and (max-width: 767px) {
+  .profile__button-add {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 430px) {
+  .profile__button-add {
+    background-size: 6%;
+  }
+}

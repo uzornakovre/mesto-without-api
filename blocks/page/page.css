@@ -8,3 +8,7 @@
   background-color: #000;
   color: #fff;
 }
+
+.page * {
+  transition: all .2s linear;
+}

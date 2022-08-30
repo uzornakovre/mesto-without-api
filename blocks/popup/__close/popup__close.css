@@ -20,3 +20,12 @@
 .popup__close:active {
   opacity: .3;
 }
+
+@media screen and (max-width: 570px) {
+  .popup__close {
+    width: 20px;
+    height: 20px;
+    top: -35px;
+    right: 0;
+  }
+}
