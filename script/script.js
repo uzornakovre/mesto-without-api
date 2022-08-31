@@ -19,23 +19,25 @@ popupClose.addEventListener('click', function popupOff(evt) {
   popup.classList.remove('popup_opened');
 });
 
-popupContainer.addEventListener('submit', function formSubmitHandler(evt) {
+function formSubmitHandler(evt) {
     evt.preventDefault();
     profileName.textContent = nameInput.value;
     profileJob.textContent = jobInput.value;
     popup.classList.remove('popup_opened');
-});
+}
 
 nameInput.addEventListener('keypress', function(evt) {
   if (evt.keyCode === 13) {
     evt.preventDefault();
-    jobInput.focus();
+    formSubmitHandler(evt);
   }
 });
 
 jobInput.addEventListener('keypress', function(evt) {
   if (evt.keyCode === 13) {
     evt.preventDefault();
-    submitInput.focus();
+    formSubmitHandler(evt);
   }
 });
+
+popupContainer.addEventListener('submit', formSubmitHandler);
