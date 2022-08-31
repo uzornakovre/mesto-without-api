@@ -22,7 +22,6 @@
 @import url('../blocks/popup/__form-title/popup__form-title.css');
 @import url('../blocks/popup/__form-input/popup__form-input.css');
 @import url('../blocks/popup/__form-input/_content/popup__form-input_content_name.css');
-@import url('../blocks/popup/__form-input/_content/popup__form-input_content_job.css');
 @import url('../blocks/popup/__form-submit/popup__form-submit.css');
 @import url('../blocks/popup/__close/popup__close.css');
 @import url('../blocks/footer/footer.css');

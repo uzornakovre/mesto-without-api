@@ -20,7 +20,8 @@
 }
 
 .profile__button-add:focus {
-  outline: 1px solid yellow;
+  outline: none;
+  box-shadow: 1px 1px 10px #fff;
 }
 
 @media screen and (max-width: 767px) {
