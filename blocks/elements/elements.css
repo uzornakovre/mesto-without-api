@@ -2,7 +2,7 @@
   padding-top: 50px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(3, minmax(auto, 282px));
+  grid-template-columns: repeat(3, 282px);
   grid-column-gap: 17px;
   grid-row-gap: 20px;
   justify-items: stretch;
@@ -13,12 +13,12 @@
 @media screen and (max-width: 980px) {
   .elements {
     padding-top: 36px;
-    grid-template-columns: repeat(2, minmax(282px, 1fr));
+    grid-template-columns: repeat(2, 282px);
   }
 }
 
 @media screen and (max-width: 640px) {
   .elements {
-    grid-template-columns: minmax(282px, 1fr);
+    grid-template-columns: 282px;
   }
 }

@@ -2,7 +2,7 @@
   position: relative;
 }
 
-@media screen and (max-width: 920px) {
+@media screen and (max-width: 980px) {
   .content {
     padding-left: 5.94%;
     padding-right: 5.94%;
