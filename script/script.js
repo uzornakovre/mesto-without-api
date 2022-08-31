@@ -9,21 +9,21 @@ let profileName = document.querySelector('.profile__name');
 let profileJob = document.querySelector('.profile__job');
 
 buttonEdit.addEventListener('click', function popupOn() {
-  popup.setAttribute('style', 'display: flex');
+  popup.classList.add('popup_opened');
   nameInput.value = profileName.textContent;
   jobInput.value = profileJob.textContent;
 });
 
 popupClose.addEventListener('click', function popupOff(evt) {
   evt.preventDefault();
-  popup.setAttribute('style', 'display: none');
+  popup.classList.remove('popup_opened');
 });
 
 popupContainer.addEventListener('submit', function formSubmitHandler(evt) {
     evt.preventDefault();
     profileName.textContent = nameInput.value;
     profileJob.textContent = jobInput.value;
-    popup.setAttribute('style', 'display: none');
+    popup.classList.remove('popup_opened');
 });
 
 nameInput.addEventListener('keypress', function(evt) {
