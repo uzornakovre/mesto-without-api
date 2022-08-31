@@ -15,68 +15,70 @@
       <img class="profile__avatar" src="./images/profile__avatar.png" alt="Аватар">
       <div class="profile__info">
         <h1 class="profile__name">Жак-Ив Кусто</h1>
-        <button class="profile__button-edit"></button>
+        <button class="profile__button-edit" type="button"></button>
         <p class="profile__job">Исследователь океана</p>
       </div>
-      <button class="profile__button-add"></button>
+      <button class="profile__button-add" type="button"></button>
     </section>
     <section class="elements">
-      <figure class="element">
-        <img class="element__image" src="./images/karachaevsk.jpg" alt="Карачаевск">
-        <figcaption class="element__caption">
-          <h2 class="element__title">Карачаевск</h2>
-          <button class="element__button-like"></button>
-        </figcaption>
-      </figure>
-      <figure class="element">
-        <img class="element__image" src="./images/elbrus.jpg" alt="Гора Эльбрус">
-        <figcaption class="element__caption">
-          <h2 class="element__title">Гора Эльбрус</h2>
-          <button class="element__button-like"></button>
-        </figcaption>
-      </figure>
-      <figure class="element">
-        <img class="element__image" src="./images/dombay.jpg" alt="Домбай">
-        <figcaption class="element__caption">
-          <h2 class="element__title">Домбай</h2>
-          <button class="element__button-like"></button>
-        </figcaption>
-      </figure>
-      <figure class="element">
-        <img class="element__image" src="./images/karelia.jpg" alt="Карелия">
-        <figcaption class="element__caption">
-          <h2 class="element__title">Карелия</h2>
-          <button class="element__button-like"></button>
-        </figcaption>
-      </figure>
-      <figure class="element">
-        <img class="element__image" src="./images/kolskiy.jpg" alt="Кольский полуостров">
-        <figcaption class="element__caption">
-          <h2 class="element__title">Кольский полуостров</h2>
-          <button class="element__button-like"></button>
-        </figcaption>
-      </figure>
-      <figure class="element">
-        <img class="element__image" src="./images/kosa.jpg" alt="Куршская коса">
-        <figcaption class="element__caption">
-          <h2 class="element__title">Куршкая коса</h2>
-          <button class="element__button-like"></button>
-        </figcaption>
-      </figure>
-    </section>
-    <section class="popup">
-      <form class="popup__container">
-        <button class="popup__close"></button>
-        <h2 class="popup__form-title">Редактировать профиль</h2>
-        <input type="text" class="popup__form-input popup__form-input_content_name" name="form-input_content_name" placeholder="Имя" value="Жак-Ив Кусто">
-        <input type="text" class="popup__form-input popup__form-input_content_job" name="form-input_content_job" placeholder="Профессия" value="Исследователь океана">
-        <input type="submit" class="popup__form-submit" name="form-submit" value="Сохранить">
-      </form>
+      <ul class="elements__list">
+        <li class="elements__list-item"><figure class="element">
+          <img class="element__image" src="./images/karachaevsk.jpg" alt="Карачаевск">
+          <figcaption class="element__caption">
+            <h2 class="element__title">Карачаевск</h2>
+            <button class="element__button-like" type="button"></button>
+          </figcaption>
+        </figure></li>
+        <li class="elements__list-item"><figure class="element">
+          <img class="element__image" src="./images/elbrus.jpg" alt="Гора Эльбрус">
+          <figcaption class="element__caption">
+            <h2 class="element__title">Гора Эльбрус</h2>
+            <button class="element__button-like" type="button"></button>
+          </figcaption>
+        </figure></li>
+        <li class="elements__list-item"><figure class="element">
+          <img class="element__image" src="./images/dombay.jpg" alt="Домбай">
+          <figcaption class="element__caption">
+            <h2 class="element__title">Домбай</h2>
+            <button class="element__button-like"></button>
+          </figcaption>
+        </figure></li>
+        <li class="elements__list-item"><figure class="element">
+          <img class="element__image" src="./images/karelia.jpg" alt="Карелия">
+          <figcaption class="element__caption">
+            <h2 class="element__title">Карелия</h2>
+            <button class="element__button-like"></button>
+          </figcaption>
+        </figure></li>
+        <li class="elements__list-item"><figure class="element">
+          <img class="element__image" src="./images/kolskiy.jpg" alt="Кольский полуостров">
+          <figcaption class="element__caption">
+            <h2 class="element__title">Кольский полуостров</h2>
+            <button class="element__button-like"></button>
+          </figcaption>
+        </figure></li>
+        <li class="elements__list-item"><figure class="element">
+          <img class="element__image" src="./images/kosa.jpg" alt="Куршская коса">
+          <figcaption class="element__caption">
+            <h2 class="element__title">Куршкая коса</h2>
+            <button class="element__button-like"></button>
+          </figcaption>
+        </figure></li>
+      </ul>
     </section>
   </main>
   <footer class="footer">
     <p class="footer__copyright">&copy; 2022 Mesto Russia</p>
   </footer>
+  <div class="popup">
+    <form class="popup__container" name="profile_edit">
+      <button class="popup__close" type="button"></button>
+      <h2 class="popup__form-title">Редактировать профиль</h2>
+      <input type="text" class="popup__form-input popup__form-input_content_name" name="input_name" placeholder="Имя" value="Жак-Ив Кусто">
+      <input type="text" class="popup__form-input popup__form-input_content_job" name="input_job" placeholder="Профессия" value="Исследователь океана">
+      <button type="submit" class="popup__form-submit" name="form_submit">Сохранить</button>
+    </form>
+  </div>
   <script src="./script/script.js"></script>
 </body>
 </html>

@@ -1,24 +1,4 @@
 .elements {
   padding-top: 50px;
   margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(3, 282px);
-  grid-column-gap: 17px;
-  grid-row-gap: 20px;
-  justify-items: stretch;
-  justify-content: space-around;
-  align-items: stretch;
-}
-
-@media screen and (max-width: 980px) {
-  .elements {
-    padding-top: 36px;
-    grid-template-columns: repeat(2, 282px);
-  }
-}
-
-@media screen and (max-width: 640px) {
-  .elements {
-    grid-template-columns: 282px;
-  }
 }
