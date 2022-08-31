@@ -27,15 +27,15 @@ popupContainer.addEventListener('submit', function formSubmitHandler(evt) {
 });
 
 nameInput.addEventListener('keypress', function(evt) {
-  evt.preventDefault();
   if (evt.keyCode === 13) {
+    evt.preventDefault();
     jobInput.focus();
   }
 });
 
 jobInput.addEventListener('keypress', function(evt) {
-  evt.preventDefault();
   if (evt.keyCode === 13) {
+    evt.preventDefault();
     submitInput.focus();
   }
 });
