@@ -6,6 +6,7 @@
   grid-column-gap: 17px;
   grid-row-gap: 20px;
   justify-content: center;
+  list-style: none;
 }
 
 @media screen and (max-width: 980px) {
