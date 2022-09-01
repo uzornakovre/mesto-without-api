@@ -2,23 +2,14 @@
   padding: 0;
   margin: 0;
   display: grid;
-  grid-template-columns: repeat(3, 282px);
+  grid-template-columns: repeat(auto-fit, 282px);
   grid-column-gap: 17px;
   grid-row-gap: 20px;
-  justify-items: stretch;
-  justify-content: space-around;
-  align-items: stretch;
+  justify-content: center;
 }
 
 @media screen and (max-width: 980px) {
   .elements__list {
     padding-top: 36px;
-    grid-template-columns: repeat(2, 282px);
-  }
-}
-
-@media screen and (max-width: 640px) {
-  .elements__list {
-    grid-template-columns: 282px;
   }
 }
