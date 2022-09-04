@@ -14,7 +14,7 @@ function openEditPopup() {
   jobInput.value = profileJob.textContent;
 }
 
-function closeEditPopup(evt) {
+function closeEditPopup() {
   popup.classList.remove('popup_opened');
 }
 
