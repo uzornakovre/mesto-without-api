@@ -5,6 +5,7 @@
   width: 32px;
   height: 32px;
   border: 0;
+  padding: 0;
   background-color: initial;
   background-image: url('../../../images/edit__button-close.svg');
   background-repeat: no-repeat;
