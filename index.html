@@ -22,7 +22,16 @@
     </section>
     <section class="elements">
       <ul class="elements__list">
-        <li class="elements__list-item"><article class="element">
+        <template id="cardTemplate">
+          <li class="elements__list-item"><article class="element">
+            <img class="element__image" src="" alt="">
+            <div class="element__caption">
+              <h2 class="element__title"></h2>
+              <button class="element__button-like" type="button"></button>
+            </div>
+          </article></li>
+        </template>
+        <!-- <li class="elements__list-item"><article class="element">
           <img class="element__image" src="./images/karachaevsk.jpg" alt="Карачаевск">
           <div class="element__caption">
             <h2 class="element__title">Карачаевск</h2>
@@ -63,7 +72,7 @@
             <h2 class="element__title">Куршкая коса</h2>
             <button class="element__button-like" type="button"></button>
           </div>
-        </article></li>
+        </article></li> -->
       </ul>
     </section>
   </main>
@@ -71,13 +80,15 @@
     <p class="footer__copyright">&copy; 2022 Mesto Russia</p>
   </footer>
   <div class="popup">
-    <form class="popup__container" name="profile_edit">
+    <div class="popup__container">
       <button class="popup__close" type="button"></button>
-      <h2 class="popup__form-title">Редактировать профиль</h2>
-      <input type="text" class="popup__form-input popup__form-input_content_name" name="input_name" placeholder="Имя" value="Жак-Ив Кусто">
-      <input type="text" class="popup__form-input popup__form-input_content_job" name="input_job" placeholder="Профессия" value="Исследователь океана">
-      <button type="submit" class="popup__form-submit" name="form_submit">Сохранить</button>
-    </form>
+      <form class="popup__form" name="profile_edit">
+        <h2 class="popup__form-title">Редактировать профиль</h2>
+        <input type="text" class="popup__form-input popup__form-input_content_name" name="input_name" placeholder="Имя" value="Жак-Ив Кусто">
+        <input type="text" class="popup__form-input popup__form-input_content_job" name="input_job" placeholder="Профессия" value="Исследователь океана">
+        <button type="submit" class="popup__form-submit" name="form_submit">Сохранить</button>
+      </form>
+    </div>
   </div>
   <script src="./scripts/script.js"></script>
 </body>
