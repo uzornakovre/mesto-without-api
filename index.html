@@ -81,13 +81,22 @@
     <p class="footer__copyright">&copy; 2022 Mesto Russia</p>
   </footer>
   <div class="popup">
-    <div class="popup__container">
+    <div class="popup__container popup__container_type_edit-profile">
       <button class="popup__close" type="button"></button>
       <form class="popup__form" name="profile_edit">
         <h2 class="popup__form-title">Редактировать профиль</h2>
         <input type="text" class="popup__form-input popup__form-input_content_name" name="input_name" placeholder="Имя" value="Жак-Ив Кусто">
         <input type="text" class="popup__form-input popup__form-input_content_job" name="input_job" placeholder="Профессия" value="Исследователь океана">
-        <button type="submit" class="popup__form-submit" name="form_submit">Сохранить</button>
+        <button type="submit" class="popup__form-submit" name="save_profile">Сохранить</button>
+      </form>
+    </div>
+    <div class="popup__container popup__container_type_new-place">
+      <button class="popup__close" type="button"></button>
+      <form class="popup__form" name="new_place">
+        <h2 class="popup__form-title">Новое место</h2>
+        <input type="text" class="popup__form-input popup__form-input_content_place-name" name="input_place-name" placeholder="Название" value="">
+        <input type="text" class="popup__form-input popup__form-input_content_image-url" name="image-url" placeholder="Ссылка на картинку" value="">
+        <button type="submit" class="popup__form-submit" name="create_new">Создать</button>
       </form>
     </div>
   </div>
