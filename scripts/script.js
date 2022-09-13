@@ -8,6 +8,8 @@ const submitInput = popup.querySelector('.popup__form-submit');
 const profileName = document.querySelector('.profile__name');
 const profileJob = document.querySelector('.profile__job');
 
+// Модальные окна
+
 function openPopup () {
   popup.classList.add('popup_opened');
   popupContainer.classList.add('popup__container_opened');
@@ -35,6 +37,8 @@ function formSubmitHandler(evt) {
 }
 
 popupContainer.addEventListener('submit', formSubmitHandler);
+
+// Карточки
 
 const cardTemplate = document.querySelector('#cardTemplate').content;
 const elementsList = document.querySelector('.elements__list');
@@ -65,12 +69,42 @@ const initialCards = [
   }
 ];
 
-initialCards.forEach(function(item) {
+initialCards.forEach(function (item) {
   const cardElement = cardTemplate.querySelector('.elements__list-item').cloneNode(true);
 
   cardElement.querySelector('.element__image').src = item.link;
   cardElement.querySelector('.element__title').textContent = item.name;
 
   elementsList.append(cardElement);
-})
+
+  const cardDeleteButton = cardElement.querySelector('.elements__button-remove');
+
+  cardDeleteButton.addEventListener('click', function () {
+    const listItem = cardDeleteButton.closest('.elements__list-item');
+    listItem.remove();
+  });
+
+  const likeButton = cardElement.querySelector('.element__button-like');
+
+  likeButton.addEventListener('click', function () {
+    likeButton.classList.toggle('element__button-like_active');
+  });
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

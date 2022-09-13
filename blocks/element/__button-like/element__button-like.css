@@ -13,8 +13,3 @@
 .element__button-like:hover {
   opacity: .5;
 }
-
-.element__button-like:focus {
-  outline: none;
-  opacity: .5;
-}
