@@ -20,7 +20,7 @@
       </div>
       <button class="profile__button-add" type="button"></button>
     </section>
-    <section class="elements">
+    <section class="elements" aria-label="Блок с карточками">
       <ul class="elements__list">
         <template id="cardTemplate">
           <li class="elements__list-item"><article class="element">
@@ -57,15 +57,13 @@
         <button type="submit" class="popup__form-submit" name="create_new">Создать</button>
       </form>
     </div>
-    <!-- <template id="popupImageTemplate"> -->
-      <div class="popup__container popup__container_type_image">
-        <button class="popup__close" type="button"></button>
-        <figure class="popup__image-wrapper">
-          <img class="popup__image" src="" alt="">
-          <figcaption class="popup__image-caption"></figcaption>
-        </figure>
-      </div>
-    <!-- </template> -->
+    <div class="popup__container popup__container_type_image">
+      <button class="popup__close" type="button"></button>
+      <figure class="popup__image-wrapper">
+        <img class="popup__image" src="#" alt="">
+        <figcaption class="popup__image-caption"></figcaption>
+      </figure>
+    </div>
   </div>
   <script src="./scripts/script.js"></script>
 </body>
