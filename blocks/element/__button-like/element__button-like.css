@@ -8,8 +8,10 @@
   background-position: center;
   cursor: pointer;
   transition: all .2s linear;
+  padding: 0;
 }
 
 .element__button-like:hover {
   opacity: .5;
+  background-color: inherit;
 }
