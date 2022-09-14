@@ -22,11 +22,6 @@
   opacity: .3;
 }
 
-.popup__close:focus {
-  outline: none;
-  box-shadow: 1px 1px 10px #fff;
-}
-
 @media screen and (max-width: 570px) {
   .popup__close {
     width: 20px;

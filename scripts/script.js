@@ -3,7 +3,7 @@ const popup = document.querySelector('.popup');
 const buttonEdit = document.querySelector('.profile__button-edit');
 const buttonAdd = document.querySelector('.profile__button-add');
 
-const popupClose = popup.querySelectorAll('.popup__close');
+const popupCloseButton = popup.querySelectorAll('.popup__close');
 const popupContainer = popup.querySelectorAll('.popup__container')
 const popupEditContainer = popup.querySelector('.popup__container_type_edit-profile');
 const popupPlaceContainer = popup.querySelector('.popup__container_type_new-place');
@@ -33,7 +33,7 @@ function closePopup() {
   });
 }
 
-popupClose.forEach((buttonClose) => {
+popupCloseButton.forEach((buttonClose) => {
   buttonClose.addEventListener('click', closePopup);
 });
 
