@@ -14,3 +14,7 @@
 .element__button-like:hover {
   opacity: .5;
 }
+
+.element__button-like:active {
+  background-color: inherit;
+}

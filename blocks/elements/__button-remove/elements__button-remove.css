@@ -18,4 +18,5 @@
 
 .elements__button-remove:active {
   opacity: .4;
+  background-color: inherit;
 }
