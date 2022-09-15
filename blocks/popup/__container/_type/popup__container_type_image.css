@@ -1,5 +1,4 @@
 .popup__container_type_image {
-  top: 90px;
   width: auto;
   max-width: 75vw;
   max-height: 75vh;
@@ -10,10 +9,4 @@
   display: flex;
   flex-direction: column;
   margin: 0 auto;
-}
-
-@media screen and (max-width: 767px) {
-  .popup__container_type_image {
-    top: 100px;
-  }
 }
