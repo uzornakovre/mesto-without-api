@@ -1,32 +1,29 @@
-const popupOverlay = document.querySelector('.popup');
+const popupEdit = document.querySelector('.popup_type_edit-profile');
+const popupPlace = document.querySelector('.popup_type_new-place');
+const popupImageViewer = document.querySelector('.popup_type_image');
 
 const buttonEdit = document.querySelector('.profile__button-edit');
 const buttonAdd = document.querySelector('.profile__button-add');
 
-const popupContainer = popupOverlay.querySelectorAll('.popup__container');
-const popupEditContainer = popupOverlay.querySelector('.popup__container_type_edit-profile');
-const popupPlaceContainer = popupOverlay.querySelector('.popup__container_type_new-place');
-const popupImageContainer = popupOverlay.querySelector('.popup__container_type_image');
-const popupImage = popupOverlay.querySelector('.popup__image');
-const popupImageCaption = popupOverlay.querySelector('.popup__image-caption');
+const popupImage = popupImageViewer.querySelector('.popup__image');
+const popupImageCaption = popupImageViewer.querySelector('.popup__image-caption');
 
-const formEdit = popupOverlay.querySelector('#profile_edit');
-const formAdd = popupOverlay.querySelector('#new_place');
+const formEdit = popupEdit.querySelector('#profile_edit');
+const formAdd = popupPlace.querySelector('#new_place');
 
-const nameInput = popupEditContainer.querySelector('.popup__form-input_content_name');
-const jobInput = popupEditContainer.querySelector('.popup__form-input_content_job');
+const nameInput = popupEdit.querySelector('.popup__form-input_content_name');
+const jobInput = popupEdit.querySelector('.popup__form-input_content_job');
 
 const profileName = document.querySelector('.profile__name');
 const profileJob = document.querySelector('.profile__job');
 
-const placeName = popupPlaceContainer.querySelector('.popup__form-input_content_place-name');
-const imageUrl = popupPlaceContainer.querySelector('.popup__form-input_content_image-url');
+const placeName = popupPlace.querySelector('.popup__form-input_content_place-name');
+const imageUrl = popupPlace.querySelector('.popup__form-input_content_image-url');
 
 // Модальные окна
 
 function openPopup(place) {
-  popupOverlay.classList.add('popup_opened');
-  place.classList.add('popup__container_opened');
+  place.classList.add('popup_opened');
 }
 
 function closePopup(place) {
@@ -34,19 +31,21 @@ function closePopup(place) {
   const formSubmit = place.querySelector('.popup__form');
 
   function closePopupElements() {
-    popupOverlay.classList.remove('popup_opened');
-    place.classList.remove('popup__container_opened');
+    place.classList.remove('popup_opened');
   }
 
   popupCloseButton.addEventListener('click', closePopupElements);
-  formSubmit.addEventListener('submit', closePopupElements);
+
+  if (place.contains(formSubmit)) {
+    formSubmit.addEventListener('submit', closePopupElements);
+  }
 }
 
 function openEditPopup() {
-  openPopup(popupEditContainer);
+  openPopup(popupEdit);
   nameInput.value = profileName.textContent;
   jobInput.value = profileJob.textContent;
-  closePopup(popupEditContainer);
+  closePopup(popupEdit);
 }
 
 buttonEdit.addEventListener('click', openEditPopup);
@@ -55,14 +54,14 @@ function submitEditForm(evt) {
   evt.preventDefault();
   profileName.textContent = nameInput.value;
   profileJob.textContent = jobInput.value;
-  closePopup(popupEditContainer);
+  closePopup(popupEdit);
 }
 
 formEdit.addEventListener('submit', submitEditForm);
 
 function openPlacePopup() {
-  openPopup(popupPlaceContainer);
-  closePopup(popupPlaceContainer);
+  openPopup(popupPlace);
+  closePopup(popupPlace);
 }
 
 buttonAdd.addEventListener('click', openPlacePopup);
@@ -72,17 +71,17 @@ function submitAddForm(evt) {
   createCard(placeName.value, imageUrl.value);
   placeName.value = '';
   imageUrl.value = '';
-  closePopup(popupPlaceContainer);
+  closePopup(popupPlace);
 }
 
 formAdd.addEventListener('submit', submitAddForm);
 
 function openImage(image, caption) {
-  openPopup(popupImageContainer);
+  openPopup(popupImageViewer);
   popupImage.src = image;
   popupImage.alt = `Изображение ${caption}`;
   popupImageCaption.textContent = caption;
-  closePopup(popupImageContainer);
+  closePopup(popupImageViewer);
 }
 
 // Карточки
@@ -150,12 +149,3 @@ function createCard(name, link) {
 function renderCard (card) {
   cardsContainer.prepend(card);
 }
-
-
-
-
-
-
-
-
-

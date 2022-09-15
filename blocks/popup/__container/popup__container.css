@@ -1,6 +1,5 @@
 .popup__container {
-  position: fixed;
-  top: 195px;
+  position: relative;
   box-sizing: border-box;
   width: 430px;
   background: #FFFFFF;
@@ -10,9 +9,6 @@
   display: flex;
   flex-direction: column;
   margin: 0 auto;
-  opacity: 0;
-  transition: opacity .2s linear, visibility .2s linear;
-  visibility: hidden;
 }
 
 @media screen and (max-width: 570px) {
