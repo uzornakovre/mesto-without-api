@@ -1,15 +1,17 @@
-const popup = document.querySelector('.popup');
+const popupOverlay = document.querySelector('.popup');
 
 const buttonEdit = document.querySelector('.profile__button-edit');
 const buttonAdd = document.querySelector('.profile__button-add');
 
-const popupCloseButton = popup.querySelectorAll('.popup__close');
-const popupContainer = popup.querySelectorAll('.popup__container')
-const popupEditContainer = popup.querySelector('.popup__container_type_edit-profile');
-const popupPlaceContainer = popup.querySelector('.popup__container_type_new-place');
-const popupImageContainer = popup.querySelector('.popup__container_type_image');
-const popupImage = popup.querySelector('.popup__image');
-const popupImageCaption = popup.querySelector('.popup__image-caption');
+const popupContainer = popupOverlay.querySelectorAll('.popup__container');
+const popupEditContainer = popupOverlay.querySelector('.popup__container_type_edit-profile');
+const popupPlaceContainer = popupOverlay.querySelector('.popup__container_type_new-place');
+const popupImageContainer = popupOverlay.querySelector('.popup__container_type_image');
+const popupImage = popupOverlay.querySelector('.popup__image');
+const popupImageCaption = popupOverlay.querySelector('.popup__image-caption');
+
+const formEdit = popupOverlay.querySelector('#profile_edit');
+const formAdd = popupOverlay.querySelector('#new_place');
 
 const nameInput = popupEditContainer.querySelector('.popup__form-input_content_name');
 const jobInput = popupEditContainer.querySelector('.popup__form-input_content_job');
@@ -22,27 +24,29 @@ const imageUrl = popupPlaceContainer.querySelector('.popup__form-input_content_i
 
 // Модальные окна
 
-function openPopup() {
-  popup.classList.add('popup_opened');
+function openPopup(place) {
+  popupOverlay.classList.add('popup_opened');
+  place.classList.add('popup__container_opened');
 }
 
-function closePopup() {
-  popup.classList.remove('popup_opened');
-  popupContainer.forEach((container) => {
-    container.classList.remove('popup__container_opened');
-  });
+function closePopup(place) {
+  const popupCloseButton = place.querySelector('.popup__close');
+  const formSubmit = place.querySelector('.popup__form');
+
+  function closePopupElements() {
+    popupOverlay.classList.remove('popup_opened');
+    place.classList.remove('popup__container_opened');
+  }
+
+  popupCloseButton.addEventListener('click', closePopupElements);
+  formSubmit.addEventListener('submit', closePopupElements);
 }
-
-popupCloseButton.forEach((buttonClose) => {
-  buttonClose.addEventListener('click', closePopup);
-});
-
 
 function openEditPopup() {
-  openPopup();
-  popupEditContainer.classList.add('popup__container_opened');
+  openPopup(popupEditContainer);
   nameInput.value = profileName.textContent;
   jobInput.value = profileJob.textContent;
+  closePopup(popupEditContainer);
 }
 
 buttonEdit.addEventListener('click', openEditPopup);
@@ -51,14 +55,14 @@ function submitEditForm(evt) {
   evt.preventDefault();
   profileName.textContent = nameInput.value;
   profileJob.textContent = jobInput.value;
-  closePopup();
+  closePopup(popupEditContainer);
 }
 
-popupEditContainer.addEventListener('submit', submitEditForm);
+formEdit.addEventListener('submit', submitEditForm);
 
 function openPlacePopup() {
-  openPopup();
-  popupPlaceContainer.classList.add('popup__container_opened');
+  openPopup(popupPlaceContainer);
+  closePopup(popupPlaceContainer);
 }
 
 buttonAdd.addEventListener('click', openPlacePopup);
@@ -68,23 +72,23 @@ function submitAddForm(evt) {
   createCard(placeName.value, imageUrl.value);
   placeName.value = '';
   imageUrl.value = '';
-  closePopup();
+  closePopup(popupPlaceContainer);
 }
 
-popupPlaceContainer.addEventListener('submit', submitAddForm);
+formAdd.addEventListener('submit', submitAddForm);
 
 function openImage(image, caption) {
-  openPopup();
-  popupImageContainer.classList.add('popup__container_opened');
+  openPopup(popupImageContainer);
   popupImage.src = image;
   popupImage.alt = `Изображение ${caption}`;
   popupImageCaption.textContent = caption;
+  closePopup(popupImageContainer);
 }
 
 // Карточки
 
 const cardTemplate = document.querySelector('#cardTemplate').content;
-const elementsList = document.querySelector('.elements__list');
+const cardsContainer = document.querySelector('.elements__list');
 const initialCards = [
   {
     name: 'Архыз',
@@ -120,35 +124,38 @@ function createCard(name, link) {
   const cardElement = cardTemplate.querySelector('.elements__list-item').cloneNode(true);
   const cardElementImage = cardElement.querySelector('.element__image');
 
+  const cardDeleteButton = cardElement.querySelector('.elements__button-remove');
+  const likeButton = cardElement.querySelector('.element__button-like');
+
   cardElementImage.src = link;
   cardElementImage.alt = `Изображение ${name}`;
   cardElement.querySelector('.element__title').textContent = name;
 
-  elementsList.prepend(cardElement);
-
-   cardElementImage.addEventListener('click', () => {
+  cardElementImage.addEventListener('click', () => {
     openImage(link, name);
   });
 
-  likeCard(cardElement);
-  deleteCard();
-}
-
-function deleteCard() {
-  const cardDeleteButton = document.querySelectorAll('.elements__button-remove');
-
-  cardDeleteButton.forEach((button) => {
-    button.addEventListener('click', () => {
-      const listItem = button.closest('.elements__list-item');
-      listItem.remove();
-    });
+  cardDeleteButton.addEventListener('click', () => {
+    const listItem = cardDeleteButton.closest('.elements__list-item');
+    listItem.remove();
   });
-}
-
-function likeCard(elem) {
-  const likeButton = elem.querySelector('.element__button-like');
 
   likeButton.addEventListener('click', () => {
     likeButton.classList.toggle('element__button-like_active');
   });
+
+  renderCard(cardElement);
 }
+
+function renderCard (card) {
+  cardsContainer.prepend(card);
+}
+
+
+
+
+
+
+
+
+

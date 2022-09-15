@@ -41,7 +41,7 @@
   <div class="popup">
     <div class="popup__container popup__container_type_edit-profile">
       <button class="popup__close" type="button"></button>
-      <form class="popup__form" name="profile_edit">
+      <form class="popup__form" name="profile_edit" id="profile_edit">
         <h2 class="popup__form-title">Редактировать профиль</h2>
         <input type="text" class="popup__form-input popup__form-input_content_name" name="input_name" placeholder="Имя" value="Жак-Ив Кусто">
         <input type="text" class="popup__form-input popup__form-input_content_job" name="input_job" placeholder="Профессия" value="Исследователь океана">
@@ -50,10 +50,10 @@
     </div>
     <div class="popup__container popup__container_type_new-place">
       <button class="popup__close" type="button"></button>
-      <form class="popup__form" name="new_place">
+      <form class="popup__form" name="new_place" id="new_place">
         <h2 class="popup__form-title">Новое место</h2>
         <input type="text" class="popup__form-input popup__form-input_content_place-name" name="input_place-name" placeholder="Название" value="">
-        <input type="text" class="popup__form-input popup__form-input_content_image-url" name="image-url" placeholder="Ссылка на картинку" value="">
+        <input type="url" class="popup__form-input popup__form-input_content_image-url" name="image-url" placeholder="Ссылка на картинку" value="">
         <button type="submit" class="popup__form-submit" name="create_new">Создать</button>
       </form>
     </div>
