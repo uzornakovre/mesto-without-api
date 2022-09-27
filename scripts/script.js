@@ -1,3 +1,4 @@
+const popup = document.querySelectorAll('.popup');
 const popupEdit = document.querySelector('.popup_type_edit-profile');
 const popupPlace = document.querySelector('.popup_type_new-place');
 const popupImageViewer = document.querySelector('.popup_type_image');
@@ -24,19 +25,11 @@ const popupBtnCloseEdit = popupEdit.querySelector('#close-edit');
 const popupBtnClosePlace = popupPlace.querySelector('#close-place');
 const popupBtnCloseImage = popupImageViewer.querySelector('#close-image');
 
-// Модальные окна
+// Модальные окна (открытие)
 
 function openPopup(place) {
   place.classList.add('popup_opened');
 }
-
-function closePopup(place) {
-  place.classList.remove('popup_opened');
-}
-
-popupBtnCloseEdit.addEventListener('click', () => closePopup(popupEdit));
-popupBtnClosePlace.addEventListener('click', () => closePopup(popupPlace));
-popupBtnCloseImage.addEventListener('click', () => closePopup(popupImageViewer));
 
 function openEditPopup() {
   openPopup(popupEdit);
@@ -45,6 +38,54 @@ function openEditPopup() {
 }
 
 buttonEdit.addEventListener('click', openEditPopup);
+
+function openPlacePopup() {
+  openPopup(popupPlace);
+}
+
+buttonAdd.addEventListener('click', openPlacePopup);
+
+function openImage(image, caption) {
+  openPopup(popupImageViewer);
+  popupImage.src = image;
+  popupImage.alt = `Изображение ${caption}`;
+  popupImageCaption.textContent = caption;
+}
+
+// Модальные окна (закрытие)
+
+function closePopup(place) {
+  place.classList.remove('popup_opened');
+}
+
+popupBtnCloseEdit.addEventListener('click', () => closePopup(popupEdit));
+popupEdit.addEventListener('click', evt => {
+  if (evt.target === popupEdit) {
+    closePopup(popupEdit);
+  }
+});
+
+popupBtnClosePlace.addEventListener('click', () => closePopup(popupPlace));
+popupPlace.addEventListener('click', evt => {
+  if (evt.target === popupPlace) {
+    closePopup(popupPlace);
+  }
+});
+
+popupBtnCloseImage.addEventListener('click', () => closePopup(popupImageViewer));
+popupImageViewer.addEventListener('click', evt => {
+  if (evt.target === popupImageViewer) {
+    closePopup(popupImageViewer);
+  }
+});
+
+document.addEventListener('keydown', evt => {
+  if (evt.key === 'Escape') {
+    popup.forEach(type => closePopup(type));
+  }
+});
+
+// Модальные окна (отправка формы)
 
 function submitEditForm(evt) {
   evt.preventDefault();
@@ -55,12 +96,6 @@ function submitEditForm(evt) {
 
 formEdit.addEventListener('submit', submitEditForm);
 
-function openPlacePopup() {
-  openPopup(popupPlace);
-}
-
-buttonAdd.addEventListener('click', openPlacePopup);
-
 function submitAddForm(evt) {
   evt.preventDefault();
   renderCard(placeName.value, imageUrl.value);
@@ -70,13 +105,6 @@ function submitAddForm(evt) {
 }
 
 formAdd.addEventListener('submit', submitAddForm);
-
-function openImage(image, caption) {
-  openPopup(popupImageViewer);
-  popupImage.src = image;
-  popupImage.alt = `Изображение ${caption}`;
-  popupImageCaption.textContent = caption;
-}
 
 // Карточки
 
