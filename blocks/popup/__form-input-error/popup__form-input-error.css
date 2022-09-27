@@ -1,0 +1,11 @@
+.popup__form-input-error {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 15px;
+  color: #FF0000;
+  display: block;
+}
+
+.popup__form-input-error:first-of-type {
+  margin-bottom: 10px;
+}
