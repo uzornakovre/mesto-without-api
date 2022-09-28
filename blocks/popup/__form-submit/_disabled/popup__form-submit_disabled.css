@@ -4,7 +4,6 @@
   outline: 1px solid #000;
   opacity: .2;
   cursor: default;
-  pointer-events: none;
 }
 
 .popup__form-submit_disabled:hover {
