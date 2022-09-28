@@ -103,6 +103,7 @@ function submitAddForm(evt) {
   renderCard(placeName.value, imageUrl.value);
   placeName.value = '';
   imageUrl.value = '';
+  enableValidation(settings);
   closePopup(popupPlace);
 }
 
