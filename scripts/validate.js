@@ -6,8 +6,6 @@ const settings = {
   inputErrorClass: 'popup__form-input_error'
 }
 
-enableValidation(settings);
-
 function enableValidation() {
   const formList = Array.from(document.querySelectorAll(settings.formSelector));
   formList.forEach((formElement) => {
@@ -65,3 +63,5 @@ function hideInputError(formElement, inputElement) {
   errorElement.textContent = "";
   inputElement.classList.remove(settings.inputErrorClass);
 }
+
+enableValidation(settings);
