@@ -59,21 +59,21 @@ function closePopup(place) {
 }
 
 popupBtnCloseEdit.addEventListener('click', () => closePopup(popupEdit));
-popupEdit.addEventListener('click', evt => {
+popupEdit.addEventListener('mousedown', evt => {
   if (evt.target === popupEdit) {
     closePopup(popupEdit);
   }
 });
 
 popupBtnClosePlace.addEventListener('click', () => closePopup(popupPlace));
-popupPlace.addEventListener('click', evt => {
+popupPlace.addEventListener('mousedown', evt => {
   if (evt.target === popupPlace) {
     closePopup(popupPlace);
   }
 });
 
 popupBtnCloseImage.addEventListener('click', () => closePopup(popupImageViewer));
-popupImageViewer.addEventListener('click', evt => {
+popupImageViewer.addEventListener('mousedown', evt => {
   if (evt.target === popupImageViewer) {
     closePopup(popupImageViewer);
   }

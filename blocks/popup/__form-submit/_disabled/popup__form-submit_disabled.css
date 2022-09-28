@@ -1,15 +1,16 @@
 .popup__form-submit_disabled {
   color: #000;
   background-color: transparent;
-  border: 1px solid #000;
+  outline: 1px solid #000;
   opacity: .2;
   cursor: default;
+  pointer-events: none;
 }
 
-.popup__form-submit:hover {
+.popup__form-submit_disabled:hover {
   opacity: .2;
 }
 
-.popup__form-submit:active {
+.popup__form-submit_disabled:active {
   opacity: .2;
 }
