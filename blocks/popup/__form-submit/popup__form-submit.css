@@ -2,7 +2,7 @@
   width: 100%;
   color: #fff;
   background-color: #000;
-  border: none;
+  border: 1px solid transparent;
   border-radius: 2px;
   font-weight: 400;
   font-size: 18px;
