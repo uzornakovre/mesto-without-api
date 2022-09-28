@@ -29,6 +29,7 @@ const popupBtnCloseImage = popupImageViewer.querySelector('#close-image');
 
 function openPopup(place) {
   place.classList.add('popup_opened');
+  document.addEventListener('keydown', closeByEscape);
 }
 
 function openEditPopup() {
@@ -56,6 +57,13 @@ function openImage(image, caption) {
 
 function closePopup(place) {
   place.classList.remove('popup_opened');
+  document.removeEventListener('keydown', closeByEscape);
+}
+
+function closeByEscape(evt) {
+  if (evt.key === 'Escape') {
+    popup.forEach(place => closePopup(place));
+  }
 }
 
 popupBtnCloseEdit.addEventListener('click', () => closePopup(popupEdit));
@@ -76,12 +84,6 @@ popupBtnCloseImage.addEventListener('click', () => closePopup(popupImageViewer))
 popupImageViewer.addEventListener('mousedown', evt => {
   if (evt.target === popupImageViewer) {
     closePopup(popupImageViewer);
-  }
-});
-
-document.addEventListener('keydown', evt => {
-  if (evt.key === 'Escape') {
-    popup.forEach(type => closePopup(type));
   }
 });
 
