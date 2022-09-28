@@ -1,5 +1,15 @@
+const settings = {
+  formSelector: '.popup__form',
+  inputSelector: '.popup__form-input',
+  submitButtonSelector: '.popup__form-submit',
+  inactiveButtonClass: 'popup__form-submit_disabled',
+  inputErrorClass: 'popup__form-input_error'
+}
+
+enableValidation(settings);
+
 function enableValidation() {
-  const formList = Array.from(document.querySelectorAll('.popup__form'));
+  const formList = Array.from(document.querySelectorAll(settings.formSelector));
   formList.forEach((formElement) => {
     formElement.addEventListener('submit', evt => {
       evt.preventDefault();
@@ -8,11 +18,9 @@ function enableValidation() {
   });
 }
 
-enableValidation();
-
 function setEventListeners(formElement) {
-  const inputList = Array.from(formElement.querySelectorAll('.popup__form-input'));
-  const buttonElement = formElement.querySelector('.popup__form-submit');
+  const inputList = Array.from(formElement.querySelectorAll(settings.inputSelector));
+  const buttonElement = formElement.querySelector(settings.submitButtonSelector);
   toggleButtonState(inputList, buttonElement);
   inputList.forEach((inputElement) => {
     inputElement.addEventListener('input', () => {
@@ -30,9 +38,9 @@ function hasInvalidInput(inputList) {
 
 function toggleButtonState(inputList, buttonElement) {
   if (hasInvalidInput(inputList)) {
-    buttonElement.classList.add('popup__form-submit_disabled');
+    buttonElement.classList.add(settings.inactiveButtonClass);
   } else {
-    buttonElement.classList.remove('popup__form-submit_disabled');
+    buttonElement.classList.remove(settings.inactiveButtonClass);
   }
 }
 
@@ -47,11 +55,11 @@ function checkInputValidity(formElement, inputElement) {
 function showInputError(formElement, inputElement, errorMessage) {
   const errorElement = formElement.querySelector(`.popup__form-input-error_content_${inputElement.id}`);
   errorElement.textContent = errorMessage;
-  inputElement.classList.add('popup__form-input_error');
+  inputElement.classList.add(settings.inputErrorClass);
 }
 
 function hideInputError(formElement, inputElement) {
   const errorElement = formElement.querySelector(`.popup__form-input-error_content_${inputElement.id}`);
   errorElement.textContent = "";
-  inputElement.classList.remove('popup__form-input_error');
+  inputElement.classList.remove(settings.inputErrorClass);
 }
