@@ -40,7 +40,7 @@ function toggleButtonState(inputList, buttonElement) {
     buttonElement.setAttribute('disabled', true);
   } else {
     buttonElement.classList.remove(settings.inactiveButtonClass);
-    buttonElement.setAttribute('disabled', false);
+    buttonElement.removeAttribute('disabled')
   }
 }
 
