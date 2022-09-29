@@ -12,6 +12,7 @@ const popupImageCaption = popupImageViewer.querySelector('.popup__image-caption'
 const formEdit = popupEdit.querySelector('#profile_edit');
 const formAdd = popupPlace.querySelector('#new_place');
 
+const buttonSubmitEdit = formEdit.querySelector('.popup__form-submit');
 const buttonSubmitPlace = formAdd.querySelector('.popup__form-submit');
 
 const nameInput = popupEdit.querySelector('.popup__form-input_content_name');
@@ -40,6 +41,7 @@ function openEditPopup() {
   openPopup(popupEdit);
   nameInput.value = profileName.textContent;
   jobInput.value = profileJob.textContent;
+  enableSubmitButton(buttonSubmitEdit);
 }
 
 buttonEdit.addEventListener('click', openEditPopup);
@@ -83,15 +85,6 @@ popups.forEach(popup => {
 
 // Модальные окна (отправка формы и прочее)
 
-function disableSubmitButton(buttonElement) {
-  buttonElement.setAttribute('disabled', true);
-  buttonElement.classList.add('popup__form-submit_disabled');
-}
-
-function disableErrorMessages() {
-  errorMessages.forEach(validMessage => validMessage.textContent = "");
-}
-
 function submitEditForm(evt) {
   evt.preventDefault();
   profileName.textContent = nameInput.value;
@@ -108,6 +101,22 @@ function submitAddForm(evt) {
 }
 
 formAdd.addEventListener('submit', submitAddForm);
+
+// Доп. функции для корректного отображения форм после закрытия формы без сабмита и повторного открытия
+
+function enableSubmitButton(buttonElement) {
+  buttonElement.removeAttribute('disabled');
+  buttonElement.classList.remove('popup__form-submit_disabled');
+}
+
+function disableSubmitButton(buttonElement) {
+  buttonElement.setAttribute('disabled', true);
+  buttonElement.classList.add('popup__form-submit_disabled');
+}
+
+function disableErrorMessages() {
+  errorMessages.forEach(validMessage => validMessage.textContent = "");
+}
 
 // Карточки
 
