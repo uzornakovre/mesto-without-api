@@ -1,3 +1,5 @@
+import { Card } from './Card.js';
+
 const popups = document.querySelectorAll('.popup');
 const popupEdit = document.querySelector('.popup_type_edit-profile');
 const popupPlace = document.querySelector('.popup_type_new-place');
@@ -23,10 +25,6 @@ const profileJob = document.querySelector('.profile__job');
 
 const placeName = popupPlace.querySelector('.popup__form-input_content_place-name');
 const imageUrl = popupPlace.querySelector('.popup__form-input_content_image-url');
-
-const popupBtnCloseEdit = popupEdit.querySelector('#close-edit');
-const popupBtnClosePlace = popupPlace.querySelector('#close-place');
-const popupBtnCloseImage = popupImageViewer.querySelector('#close-image');
 
 const errorMessages = document.querySelectorAll('.popup__form-input-error');
 
@@ -54,7 +52,7 @@ function openPlacePopup() {
 
 buttonAdd.addEventListener('click', openPlacePopup);
 
-function openImage(image, caption) {
+function handleCardClick(image, caption) {
   openPopup(popupImageViewer);
   popupImage.src = image;
   popupImage.alt = `Изображение ${caption}`;
@@ -96,7 +94,11 @@ formEdit.addEventListener('submit', submitEditForm);
 
 function submitAddForm(evt) {
   evt.preventDefault();
-  renderCard(placeName.value, imageUrl.value);
+  const cardData = {
+    name: placeName.value,
+    link: imageUrl.value
+  }
+  new Card(cardData, '#cardTemplate', handleCardClick).renderCard();
   closePopup(popupPlace);
 }
 
@@ -120,8 +122,6 @@ function disableErrorMessages() {
 
 // Карточки
 
-const cardTemplate = document.querySelector('#cardTemplate').content;
-const cardsContainer = document.querySelector('.elements__list');
 const initialCards = [
   {
     name: 'Архыз',
@@ -149,27 +149,4 @@ const initialCards = [
   }
 ];
 
-function createCard(name, link) {
-  const cardElement = cardTemplate.querySelector('.elements__list-item').cloneNode(true);
-  const cardElementImage = cardElement.querySelector('.element__image');
-
-  const cardDeleteButton = cardElement.querySelector('.elements__button-remove');
-  const likeButton = cardElement.querySelector('.element__button-like');
-
-  cardElementImage.src = link;
-  cardElementImage.alt = `Изображение ${name}`;
-  cardElement.querySelector('.element__title').textContent = name;
-
-  cardElementImage.addEventListener('click', () => openImage(link, name));
-  cardDeleteButton.addEventListener('click', () => cardElement.remove());
-  likeButton.addEventListener('click', () => likeButton.classList.toggle('element__button-like_active'));
-
-  return cardElement;
-}
-
-function renderCard (name, link) {
-  const cardElement = createCard(name, link);
-  cardsContainer.prepend(cardElement);
-}
-
-initialCards.forEach((item) => renderCard(item.name, item.link));
+initialCards.forEach((item) => new Card(item, '#cardTemplate', handleCardClick).renderCard());
