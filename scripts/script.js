@@ -1,4 +1,5 @@
 import { Card } from './Card.js';
+import { FormValidator } from './FormValidator.js';
 
 const popups = document.querySelectorAll('.popup');
 const popupEdit = document.querySelector('.popup_type_edit-profile');
@@ -25,8 +26,6 @@ const profileJob = document.querySelector('.profile__job');
 
 const placeName = popupPlace.querySelector('.popup__form-input_content_place-name');
 const imageUrl = popupPlace.querySelector('.popup__form-input_content_image-url');
-
-const errorMessages = document.querySelectorAll('.popup__form-input-error');
 
 // Модальные окна (открытие)
 
@@ -63,7 +62,7 @@ function handleCardClick(image, caption) {
 
 function closePopup(place) {
   place.classList.remove('popup_opened');
-  disableErrorMessages();
+  disableErrorStyle();
   document.removeEventListener('keydown', closeByEscape);
 }
 
@@ -116,8 +115,12 @@ function disableSubmitButton(buttonElement) {
   buttonElement.classList.add('popup__form-submit_disabled');
 }
 
-function disableErrorMessages() {
+function disableErrorStyle() {
+  const errorMessages = document.querySelectorAll('.popup__form-input-error');
+  const inputList = document.querySelectorAll('.popup__form-input');
+
   errorMessages.forEach(validMessage => validMessage.textContent = "");
+  inputList.forEach((inputElement) => inputElement.classList.remove('popup__form-input_error'));
 }
 
 // Карточки
@@ -150,3 +153,16 @@ const initialCards = [
 ];
 
 initialCards.forEach((item) => new Card(item, '#cardTemplate', handleCardClick).renderCard());
+
+// Валидация
+
+const settingsList = {
+  formSelector: '.popup__form',
+  inputSelector: '.popup__form-input',
+  submitButtonSelector: '.popup__form-submit',
+  inactiveButtonClass: 'popup__form-submit_disabled',
+  inputErrorClass: 'popup__form-input_error'
+}
+
+const formList = Array.from(document.querySelectorAll(settingsList.formSelector));
+formList.forEach((formElement) => new FormValidator(settingsList, formElement).enableValidation());
