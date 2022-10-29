@@ -42,7 +42,7 @@ buttonEdit.addEventListener('click', openEditPopup);
 function openPlacePopup() {
   openPopup(popupPlace);
   formAdd.reset();
-  new FormValidator(settingsList, popupPlace).resetValidation();
+  addCardFormValidator.resetValidation();
 }
 
 buttonAdd.addEventListener('click', openPlacePopup);
@@ -149,5 +149,8 @@ const settingsList = {
   inputErrorClass: 'popup__form-input_error'
 }
 
-const formList = Array.from(document.querySelectorAll(settingsList.formSelector));
-formList.forEach((formElement) => new FormValidator(settingsList, formElement).enableValidation());
+const editProfileFormValidator = new FormValidator(settingsList, popupEdit);
+const addCardFormValidator = new FormValidator(settingsList, popupPlace);
+
+editProfileFormValidator.enableValidation();
+addCardFormValidator.enableValidation();

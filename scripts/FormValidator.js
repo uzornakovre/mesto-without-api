@@ -2,6 +2,9 @@ export class FormValidator {
   constructor(settingsList, formElement) {
     this._settings = settingsList;
     this._formElement = formElement;
+    // перенес сюда строчки, чтобы заработал resetValidation, иначе он не видит этих значений
+    this._inputList = Array.from(this._formElement.querySelectorAll(this._settings.inputSelector));
+    this._buttonElement = this._formElement.querySelector(this._settings.submitButtonSelector);
   }
 
   enableValidation() {
@@ -9,8 +12,6 @@ export class FormValidator {
   }
 
   _setEventListeners() {
-    this._inputList = Array.from(this._formElement.querySelectorAll(this._settings.inputSelector));
-    this._buttonElement = this._formElement.querySelector(this._settings.submitButtonSelector);
     this._toggleButtonState();
     this._formElement.addEventListener('submit', evt => evt.preventDefault());
     this._inputList.forEach((inputElement) => {
@@ -33,7 +34,7 @@ export class FormValidator {
       this._buttonElement.setAttribute('disabled', true);
     } else {
       this._buttonElement.classList.remove(this._settings.inactiveButtonClass);
-      this._buttonElement.removeAttribute('disabled')
+      this._buttonElement.removeAttribute('disabled');
     }
   }
 
@@ -58,8 +59,7 @@ export class FormValidator {
   }
 
   resetValidation() {
-    this._toggleButtonState;
-    this._setEventListeners();
+    this._toggleButtonState();
     this._inputList.forEach(inputElement => this._hideInputError(inputElement));
   }
 }
