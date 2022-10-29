@@ -35,6 +35,7 @@ function openEditPopup() {
   openPopup(popupEdit);
   nameInput.value = profileName.textContent;
   jobInput.value = profileJob.textContent;
+  editProfileFormValidator.resetValidation();
 }
 
 buttonEdit.addEventListener('click', openEditPopup);
