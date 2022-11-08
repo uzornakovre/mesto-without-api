@@ -1,5 +1,6 @@
 import { Card } from './Card.js';
 import { FormValidator } from './FormValidator.js';
+import Section from './Section.js';
 
 const popups = document.querySelectorAll('.popup');
 const popupEdit = document.querySelector('.popup_type_edit-profile');
@@ -93,7 +94,7 @@ function submitAddForm(evt) {
     name: placeName.value,
     link: imageUrl.value
   }
-  cardList.prepend(createCard(cardData));
+  renderedCard.renderItems(cardData);
   closePopup(popupPlace);
 }
 
@@ -130,15 +131,15 @@ const initialCards = [
   }
 ];
 
-function createCard (item) {
-  const cardElement = new Card(item, '#cardTemplate', handleCardClick).createCard();
-  return cardElement;
-}
+const renderedCard = new Section({
+  items: initialCards,
+  renderer: (item) => {
+    const cardElement = new Card(item, '#cardTemplate', handleCardClick).createCard();
+    renderedCard.addItem(cardElement);
+  }
+}, cardList);
 
-initialCards.forEach(item => {
-  const card = createCard(item);
-  cardList.append(card);
-});
+renderedCard.renderItems();
 
 // Валидация
 
