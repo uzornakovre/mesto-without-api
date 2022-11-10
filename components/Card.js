@@ -23,7 +23,7 @@ export class Card {
 
     this._cardDeleteButton.addEventListener('click', () => this._element.remove());
     this._likeButton.addEventListener('click', () => this._likeButton.classList.toggle('element__button-like_active'));
-    this._cardImage.addEventListener('click', () => this._handleCardClick(this._link, this._name));
+    this._cardImage.addEventListener('click', () => this._handleCardClick.open(this._link, this._name));
   }
 
   createCard() {

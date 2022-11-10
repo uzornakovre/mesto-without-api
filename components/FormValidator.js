@@ -1,8 +1,7 @@
-export class FormValidator {
+export default class FormValidator {
   constructor(settingsList, formElement) {
     this._settings = settingsList;
     this._formElement = formElement;
-    // перенес сюда строчки, чтобы заработал resetValidation, иначе он не видит этих значений
     this._inputList = Array.from(this._formElement.querySelectorAll(this._settings.inputSelector));
     this._buttonElement = this._formElement.querySelector(this._settings.submitButtonSelector);
   }
