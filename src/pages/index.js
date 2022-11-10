@@ -1,3 +1,4 @@
+import './index.css';
 import { Card } from '../components/Card.js';
 import FormValidator from '../components/FormValidator.js';
 import Section from '../components/Section.js';
@@ -52,6 +53,10 @@ function submitAddForm(data) {
   card.renderItems(cardData);
   cardLoader.close();
 }
+
+profileEditor.setEventListeners();
+cardLoader.setEventListeners();
+imageViewer.setEventListeners();
 
 // Карточки
 
