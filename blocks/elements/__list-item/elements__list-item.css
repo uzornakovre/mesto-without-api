@@ -1,8 +1,0 @@
-.elements__list-item {
-  position: relative;
-  transition: transform .2s ease-out;
-}
-
-.elements__list-item:hover {
-  transform: scale(1.02);
-}
