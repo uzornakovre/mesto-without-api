@@ -4,15 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mesto</title>
-  <link rel="stylesheet" type="text/css" href="./pages/index.css">
 </head>
 <body class="page">
   <header class="header">
-    <img class="header__logo" src="./images/header__logo.svg" alt="Логотип Место">
+    <img class="header__logo" src="<%=require('./images/header__logo.svg')%>" alt="Логотип Место">
   </header>
   <main class="content">
     <section class="profile">
-      <img class="profile__avatar" src="./images/profile__avatar.png" alt="Аватар">
+      <img class="profile__avatar" src="<%=require('./images/profile__avatar.png')%>" alt="Аватар">
       <div class="profile__info">
         <h1 class="profile__name">Жак-Ив Кусто</h1>
         <button class="profile__button-edit" type="button"></button>
@@ -74,8 +73,5 @@
       </figure>
     </div>
   </div>
-  <script type="module" src="./scripts/Card.js"></script>
-  <script type="module" src="./scripts/FormValidator.js"></script>
-  <script type="module" src="./scripts/script.js"></script>
 </body>
 </html>
