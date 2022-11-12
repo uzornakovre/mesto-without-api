@@ -29,15 +29,15 @@ const userInfo = new UserInfo({
 
 buttonEdit.addEventListener('click', () => {
   profileEditor.open();
-  nameInput.value = userInfo.getUserInfo().name,
-  jobInput.value = userInfo.getUserInfo().job,
-  editProfileFormValidator.resetValidation();
+  const userInfoCurrent = userInfo.getUserInfo();
+  nameInput.value = userInfoCurrent.name,
+  jobInput.value = userInfoCurrent.job,
+  validatorEditProfile.resetValidation();
 });
 
 buttonAdd.addEventListener('click', () => {
   cardLoader.open();
-  formAdd.reset();
-  addCardFormValidator.resetValidation();
+  validatorAddCard.resetValidation();
 });
 
 function submitEditForm(data) {
@@ -46,10 +46,10 @@ function submitEditForm(data) {
 }
 
 function submitAddForm(data) {
-  const cardData = {
+  const cardData = [{
     name: data.place,
     link: data.url
-  }
+  }];
   card.renderItems(cardData);
   cardLoader.close();
 }
@@ -63,21 +63,20 @@ imageViewer.setEventListeners();
 import { cardList, initialCards } from '../utils/constants.js'; 
 
 const card = new Section({
-  items: initialCards,
   renderer: (item) => {
     const cardElement = new Card(item, '#cardTemplate', imageViewer).createCard();
     card.addItem(cardElement);
   }
 }, cardList);
 
-card.renderItems();
+card.renderItems(initialCards);
 
 // Валидация
 
 import { settingsList } from '../utils/constants.js';
 
-const editProfileFormValidator = new FormValidator(settingsList, popupEdit);
-const addCardFormValidator = new FormValidator(settingsList, popupPlace);
+const validatorEditProfile = new FormValidator(settingsList, popupEdit);
+const validatorAddCard = new FormValidator(settingsList, popupPlace);
 
-editProfileFormValidator.enableValidation();
-addCardFormValidator.enableValidation();
+validatorEditProfile.enableValidation();
+validatorAddCard.enableValidation();

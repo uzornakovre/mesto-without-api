@@ -7,9 +7,6 @@ export const popupImageViewer = document.querySelector('.popup_type_image');
 export const buttonEdit = document.querySelector('.profile__button-edit');
 export const buttonAdd = document.querySelector('.profile__button-add');
 
-export const popupImage = popupImageViewer.querySelector('.popup__image');
-export const popupImageCaption = popupImageViewer.querySelector('.popup__image-caption');
-
 export const formEdit = popupEdit.querySelector('#profile_edit');
 export const formAdd = popupPlace.querySelector('#new_place');
 

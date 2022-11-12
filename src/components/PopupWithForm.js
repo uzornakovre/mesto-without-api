@@ -13,6 +13,11 @@ export default class PopupWithForm extends Popup {
     this._submitFunction = submitFunction;
   }
 
+  open() {
+    super.open();
+    this._formSelector.reset();
+  }
+
   _getInputValues() {
     return {
       name:  nameInput.value,
@@ -28,9 +33,5 @@ export default class PopupWithForm extends Popup {
       evt.preventDefault();
       this._submitFunction(this._getInputValues());
     });
-  }
-
-  close() {
-    super.close();
   }
 }
