@@ -20,6 +20,7 @@ Mesto - это сервис, который позволит пользоват�
 ______
 
 [:link: Просмотреть страницу в GitHub Pages](https://uzornakovre.github.io/mesto/)  
+* :exclamation: В данный момент в Pages представлена ветка temp - версия проекта до подключения Webpack. Сейчас ведутся работы, и уже скоро будет готова ветка main для отображение проекта в Pages.*
 [:link: Открыть макет в Figma](https://www.figma.com/file/2cn9N9jSkmxD84oJik7xL7/JavaScript.-Sprint-4?node-id=0%3A1)
 ------
 ![GitHub repo size](https://img.shields.io/github/repo-size/uzornakovre/mesto?color=yellow&style=flat-square) ![GitHub last commit](https://img.shields.io/github/last-commit/uzornakovre/mesto?color=blue&style=flat-square) ![GitHub Repo stars](https://img.shields.io/github/stars/uzornakovre/mesto?color=pink&style=flat-square)  
