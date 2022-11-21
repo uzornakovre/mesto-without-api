@@ -19,12 +19,9 @@ Mesto - это сервис, который позволит пользоват�
 :bulb: В следующиих обновлениях планируется добавить счетчик лайков и возможность изменять аватар.
 ______
 
-*:exclamation: В данный момент в Pages представлена ветка temp - версия проекта до подключения Webpack. Сейчас ведутся работы, и уже скоро будет готова ветка main для корректного отображения проекта в Pages.*  
-
-
-[:link: Просмотреть страницу в GitHub Pages](https://uzornakovre.github.io/mesto/)  
+[:link: Просмотреть страницу в GitHub Pages](https://uzornakovre.github.io/mesto-without-api/)  
 [:link: Открыть макет в Figma](https://www.figma.com/file/2cn9N9jSkmxD84oJik7xL7/JavaScript.-Sprint-4?node-id=0%3A1)
 ------
-![GitHub repo size](https://img.shields.io/github/repo-size/uzornakovre/mesto?color=yellow&style=flat-square) ![GitHub last commit](https://img.shields.io/github/last-commit/uzornakovre/mesto?color=blue&style=flat-square) ![GitHub Repo stars](https://img.shields.io/github/stars/uzornakovre/mesto?color=pink&style=flat-square)  
+![GitHub repo size](https://img.shields.io/github/repo-size/uzornakovre/mesto-without-api?color=yellow&style=flat-square) ![GitHub last commit](https://img.shields.io/github/last-commit/uzornakovre/mesto-without-api?color=blue&style=flat-square) ![GitHub Repo stars](https://img.shields.io/github/stars/uzornakovre/mesto-without-api?color=pink&style=flat-square)  
 
-[![Скриншот страницы](https://i.ibb.co/ZBQ5VF4/2022-08-31-15-03-41.png)](https://uzornakovre.github.io/mesto/)
+[![Скриншот страницы](https://i.ibb.co/ZBQ5VF4/2022-08-31-15-03-41.png)](https://uzornakovre.github.io/mesto-without-api/)
